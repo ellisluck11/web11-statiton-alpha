@@ -18,9 +18,7 @@ h1{
   font-size:44px;
   letter-spacing:3px;
 }
-p{
-  margin:0 0 22px;
-}
+p{margin:0 0 22px}
 .hero{
   position:relative;
   width:100%;
@@ -31,26 +29,37 @@ p{
   width:100%;
   display:block;
 }
-.station{
+.hotspot{
   position:absolute;
-  color:#ffd36a;
-  font-size:22px;
-  font-weight:bold;
-  text-decoration:none;
-  text-shadow:0 0 10px #000, 0 0 14px #ffd36a;
+  display:block;
+  width:7%;
+  height:12%;
+  cursor:pointer;
 }
-.maze{font-size:34px}
-#a{left:5%; top:21%}
-#t{left:18%; top:15%}
-#i{left:29%; top:12%}
-#n{left:41%; top:12%}
-#maze{left:55%; top:8%}
-#m{left:70%; top:12%}
-#me{left:78%; top:16%}
-#onus{left:84%; top:17%}
-#e{left:91%; top:24%}
-#d{left:88%; top:50%}
-#eleven{left:93%; top:14%}
+#a{left:4%; top:24%}
+#t{left:15%; top:28%}
+#i{left:26%; top:25%}
+#n{left:38%; top:25%}
+#maze{left:48%; top:21%; width:14%; height:20%}
+#m{left:65%; top:25%}
+#me{left:72%; top:25%}
+#onus{left:79%; top:26%}
+#e{left:86%; top:28%}
+#d{left:83%; top:55%}
+#eleven{left:91%; top:26%; width:8%; height:18%}
+.route{
+  max-width:1400px;
+  margin:18px auto 0;
+  font-size:22px;
+  color:#ffd36a;
+}
+.route a{
+  color:#ffd36a;
+  text-decoration:none;
+}
+.route a:hover{
+  color:#00ff99;
+}
 </style>
 </head>
 <body>
@@ -62,18 +71,33 @@ p{
 <div class="hero">
 <img src="./web11-alpha.png" alt="WEB11 Alpha route">
 
-<a id="a" class="station" href="./A/">A</a>
-<a id="t" class="station" href="./T/">T</a>
-<a id="i" class="station" href="./I/">I</a>
-<a id="n" class="station" href="#">N</a>
-<a id="maze" class="station maze" href="#">MAZE</a>
-<a id="m" class="station" href="#">M</a>
-<a id="me" class="station" href="#">ME</a>
-<a id="onus" class="station" href="#">ONUS</a>
-<a id="e" class="station" href="#">E</a>
-<a id="d" class="station" href="#">D</a>
-<a id="eleven" class="station" href="#">ELEVEN</a>
+<a id="a" class="hotspot" href="./A/" title="Station A"></a>
+<a id="t" class="hotspot" href="./T/" title="Station T"></a>
+<a id="i" class="hotspot" href="./I/" title="Station I"></a>
+<a id="n" class="hotspot" href="#" title="Station N"></a>
+<a id="maze" class="hotspot" href="#" title="Station MAZE"></a>
+<a id="m" class="hotspot" href="#" title="Station M"></a>
+<a id="me" class="hotspot" href="#" title="Station ME"></a>
+<a id="onus" class="hotspot" href="#" title="Station ONUS"></a>
+<a id="e" class="hotspot" href="#" title="Station E"></a>
+<a id="d" class="hotspot" href="#" title="Station D"></a>
+<a id="eleven" class="hotspot" href="#" title="Station ELEVEN"></a>
 </div>
+
+<div class="route">
+<a href="./A/">A</a> →
+<a href="./T/">T</a> →
+<a href="./I/">I</a> →
+<a href="#">N</a> →
+<a href="#">MAZE</a> →
+<a href="#">M</a> →
+<a href="#">ME</a> →
+<a href="#">ONUS</a> →
+<a href="#">E</a> →
+<a href="#">D</a> →
+<a href="#">ELEVEN</a>
+</div>
+
 </div>
 
 </body>
