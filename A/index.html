@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,29 +6,52 @@
 
 <style>
 body{
-  background:#030306;
-  color:#00ff99;
-  font-family:monospace;
-  padding:40px;
+background:#030306;
+color:#00ff99;
+font-family:monospace;
+padding:40px;
 }
+
 .box{
-  border:1px solid #00ff99;
-  padding:30px;
-  max-width:900px;
+border:1px solid #00ff99;
+padding:30px;
+max-width:900px;
 }
+
 h1{
-  color:#00ff99;
+color:#00ff99;
 }
+
 .station{
-  font-size:60px;
-  color:#ff0066;
+font-size:60px;
+color:#ff0066;
 }
-a{
-  color:#00ffff;
+
+.label{
+color:#00ff99;
+font-weight:bold;
+margin-top:20px;
+}
+
+.value{
+color:white;
+margin-top:5px;
+word-break:break-all;
+}
+
+.route{
+margin-top:20px;
+color:#00ff99;
+}
+
+.next{
+margin-top:20px;
+font-size:22px;
+color:#ff0066;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="box">
@@ -37,20 +60,30 @@ a{
 
 <div class="station">A</div>
 
-<p>Arrival Witness</p>
+<h3>Arrival Witness</h3>
 
-<p>
-No station owns the archive.
-The archive exists through the route.
-</p>
+<div class="label">Archive ID</div>
+<div class="value">
+eleven-loop-web11-1782107828
+</div>
 
-<p>
+<div class="label">SHA256 Witness</div>
+<div class="value">
+6f59f527acca8d033ebe7d993670190989f53408352844c80993c1b1060fda4a
+</div>
+
+<div class="label">Role</div>
+<div class="value">
+Records arrival of the archive into the public route.
+</div>
+
+<div class="route">
 A → T → I → N → MAZE → M → ME → ONUS → E → D → ELEVEN
-</p>
+</div>
 
-<p>
-Station A records arrival and points to Station T.
-</p>
+<div class="next">
+NEXT STATION: T
+</div>
 
 </div>
 
