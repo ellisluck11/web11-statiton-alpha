@@ -3,214 +3,105 @@
 <head>
 <meta charset="utf-8">
 <title>WEB11 ALPHA</title>
-
 <style>
-
-body{
-    margin:0;
-    background:#030306;
-    color:#00ff99;
-    font-family:monospace;
-}
-
-.wrap{
-    width:100%;
-}
-
-.header{
-    padding:20px 28px;
-}
-
-h1{
-    margin:0;
-    font-size:54px;
-    letter-spacing:4px;
-}
-
-.subtitle{
-    margin-top:8px;
-    font-size:18px;
-}
-
-.hero{
-    position:relative;
-    width:100%;
-    max-width:1800px;
-    margin:auto;
-}
-
-.hero img{
-    width:100%;
-    display:block;
-}
-
-/* HOTSPOTS */
-
-.hotspot{
-    position:absolute;
-    display:block;
-    cursor:pointer;
-}
-
-/* LEFT SIDE */
-
-#a{
-    left:2%;
-    top:40%;
-    width:8%;
-    height:20%;
-}
-
-#t{
-    left:13%;
-    top:37%;
-    width:8%;
-    height:20%;
-}
-
-#i{
-    left:22%;
-    top:35%;
-    width:8%;
-    height:20%;
-}
-
-#n{
-    left:32%;
-    top:34%;
-    width:8%;
-    height:20%;
-}
-
-/* MAZE */
-
-#maze{
-    left:42%;
-    top:26%;
-    width:18%;
-    height:28%;
-}
-
-/* RIGHT SIDE */
-
-#m{
-    left:60%;
-    top:35%;
-    width:8%;
-    height:20%;
-}
-
-#me{
-    left:69%;
-    top:35%;
-    width:8%;
-    height:20%;
-}
-
-#onus{
-    left:76%;
-    top:36%;
-    width:8%;
-    height:20%;
-}
-
-#e{
-    left:84%;
-    top:38%;
-    width:6%;
-    height:18%;
-}
-
-#d{
-    left:77%;
-    top:58%;
-    width:8%;
-    height:20%;
-}
-
-#eleven{
-    left:89%;
-    top:35%;
-    width:10%;
-    height:28%;
-}
-
-.route{
-    padding:24px 28px 40px;
-    text-align:center;
-    font-size:22px;
-    color:#ffd36a;
-}
-
-.route a{
-    color:#ffd36a;
-    text-decoration:none;
-}
-
-.route a:hover{
-    color:#00ff99;
-}
-
+body{margin:0;background:#030306;color:#00ff99;font-family:monospace}
+.stage{position:relative;width:100vw;min-height:100vh;overflow:hidden;background:#030306}
+.bg{position:absolute;inset:0;background:url("./web11-alpha.png") center/cover no-repeat;filter:brightness(.75) contrast(1.12)}
+.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,6,.9),rgba(3,3,6,.22),rgba(3,3,6,.55))}
+.panel{position:relative;z-index:3;padding:34px;max-width:620px}
+h1{margin:0;font-size:46px;letter-spacing:3px}
+.subtitle{margin:8px 0 24px}
+.station-card{display:none;border:1px solid #00ff99;background:rgba(0,0,0,.58);padding:22px;box-shadow:0 0 26px rgba(0,255,153,.18)}
+.station-card.active{display:block}
+.big{font-size:86px;color:#ff0066;line-height:1;text-shadow:0 0 18px rgba(255,0,102,.8)}
+.label{color:#00ff99;margin-top:14px}
+.value{color:white;word-break:break-word}
+.hotspot{position:absolute;display:block;z-index:5;cursor:pointer}
+#a{left:2%;top:40%;width:8%;height:20%}
+#t{left:13%;top:37%;width:8%;height:20%}
+#i{left:22%;top:35%;width:8%;height:20%}
+#n{left:32%;top:34%;width:8%;height:20%}
+#maze{left:42%;top:26%;width:18%;height:28%}
+#m{left:60%;top:35%;width:8%;height:20%}
+#me{left:69%;top:35%;width:8%;height:20%}
+#onus{left:76%;top:36%;width:8%;height:20%}
+#e{left:84%;top:38%;width:6%;height:18%}
+#d{left:77%;top:58%;width:8%;height:20%}
+#eleven{left:89%;top:35%;width:10%;height:28%}
+.route{position:relative;z-index:3;padding:20px 34px 34px;text-align:center;font-size:20px;color:#ffd36a}
+.route button{background:rgba(0,0,0,.45);color:#ffd36a;border:1px solid #ffd36a;padding:8px 10px;margin:4px;font-family:monospace;cursor:pointer}
+.route button:hover{color:#00ff99;border-color:#00ff99}
 </style>
-
 </head>
 <body>
 
-<div class="wrap">
+<div class="stage">
+<div class="bg"></div>
+<div class="overlay"></div>
 
-<div class="header">
+<a id="a" class="hotspot" onclick="showStation('A')"></a>
+<a id="t" class="hotspot" onclick="showStation('T')"></a>
+<a id="i" class="hotspot" onclick="showStation('I')"></a>
+<a id="n" class="hotspot" onclick="showStation('N')"></a>
+<a id="maze" class="hotspot" onclick="showStation('MAZE')"></a>
+<a id="m" class="hotspot" onclick="showStation('M')"></a>
+<a id="me" class="hotspot" onclick="showStation('ME')"></a>
+<a id="onus" class="hotspot" onclick="showStation('ONUS')"></a>
+<a id="e" class="hotspot" onclick="showStation('E')"></a>
+<a id="d" class="hotspot" onclick="showStation('D')"></a>
+<a id="eleven" class="hotspot" onclick="showStation('ELEVEN')"></a>
+
+<div class="panel">
 <h1>WEB11 ALPHA</h1>
-<div class="subtitle">
-No station owns the archive. The archive exists through the route.
+<div class="subtitle">No station owns the archive. The archive exists through the route.</div>
+
+<div id="card" class="station-card active">
+<div class="big" id="stationName">WEB11</div>
+<h2 id="stationRole">Route Map</h2>
+<div class="label">Instruction</div>
+<div class="value" id="stationText">Click any station on the map.</div>
+<div class="label">Archive ID</div>
+<div class="value">eleven-loop-web11-1782107828</div>
+<div class="label">SHA256 Witness</div>
+<div class="value">6f59f527acca8d033ebe7d993670190989f53408352844c80993c1b1060fda4a</div>
 </div>
 </div>
-
-<div class="hero">
-
-<img src="./web11-alpha.png" alt="WEB11 Alpha">
-
-<a id="a" class="hotspot" href="./A/" title="A"></a>
-<a id="t" class="hotspot" href="./T/" title="T"></a>
-<a id="i" class="hotspot" href="./I/" title="I"></a>
-
-<a id="n" class="hotspot" href="#" title="N"></a>
-<a id="maze" class="hotspot" href="#" title="MAZE"></a>
-<a id="m" class="hotspot" href="#" title="M"></a>
-<a id="me" class="hotspot" href="#" title="ME"></a>
-<a id="onus" class="hotspot" href="#" title="ONUS"></a>
-<a id="e" class="hotspot" href="#" title="E"></a>
-<a id="d" class="hotspot" href="#" title="D"></a>
-<a id="eleven" class="hotspot" href="#" title="ELEVEN"></a>
-
 </div>
 
 <div class="route">
-
-<a href="./A/">A</a>
-→
-<a href="./T/">T</a>
-→
-<a href="./I/">I</a>
-→
-N
-→
-MAZE
-→
-M
-→
-ME
-→
-ONUS
-→
-E
-→
-D
-→
-ELEVEN
-
+<button onclick="showStation('A')">A</button> →
+<button onclick="showStation('T')">T</button> →
+<button onclick="showStation('I')">I</button> →
+<button onclick="showStation('N')">N</button> →
+<button onclick="showStation('MAZE')">MAZE</button> →
+<button onclick="showStation('M')">M</button> →
+<button onclick="showStation('ME')">ME</button> →
+<button onclick="showStation('ONUS')">ONUS</button> →
+<button onclick="showStation('E')">E</button> →
+<button onclick="showStation('D')">D</button> →
+<button onclick="showStation('ELEVEN')">ELEVEN</button>
 </div>
 
-</div>
+<script>
+const stations={
+A:["Arrival Witness","Records arrival of the archive into the public route."],
+T:["Time Witness","Records when the archive passes through the route."],
+I:["Identity Witness","Names the archive identity."],
+N:["Name Witness","Assigns the route name and points toward MAZE."],
+MAZE:["Reconstruction Station","Rebuilds only from station witnesses and fragments."],
+M:["Mutation Station","Records changes without owning the whole archive."],
+ME:["Balance Station","Coordinates identity and continuity."],
+ONUS:["Witness Station","Confirms the route passed through observation."],
+E:["Exit Station","Marks the archive leaving the route."],
+D:["Delivery Station","Marks delivery without ownership."],
+ELEVEN:["Continuity Witness","Records that the route remains alive."]
+};
+function showStation(name){
+document.getElementById("stationName").textContent=name;
+document.getElementById("stationRole").textContent=stations[name][0];
+document.getElementById("stationText").textContent=stations[name][1];
+}
+</script>
 
 </body>
 </html>
