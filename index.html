@@ -3,79 +3,250 @@
 <head>
 <meta charset="utf-8">
 <title>WEB11 ALPHA</title>
+
 <style>
-body{margin:0;background:#030306;color:#00ff99;font-family:monospace}
-.stage{position:relative;width:100vw;min-height:100vh;overflow:hidden;background:#030306}
-.bg{position:absolute;inset:0;background:url("./web11-alpha.png") center/cover no-repeat;filter:brightness(.75) contrast(1.12)}
-.overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,6,.9),rgba(3,3,6,.22),rgba(3,3,6,.55))}
-.panel{position:relative;z-index:3;padding:34px;max-width:620px}
-h1{margin:0;font-size:46px;letter-spacing:3px}
-.subtitle{margin:8px 0 24px}
-.station-card{display:none;border:1px solid #00ff99;background:rgba(0,0,0,.58);padding:22px;box-shadow:0 0 26px rgba(0,255,153,.18)}
-.station-card.active{display:block}
-.big{font-size:86px;color:#ff0066;line-height:1;text-shadow:0 0 18px rgba(255,0,102,.8)}
-.label{color:#00ff99;margin-top:14px}
-.value{color:white;word-break:break-word}
-.route{position:relative;z-index:3;padding:20px 34px 34px;text-align:center;font-size:20px;color:#ffd36a}
-.route button{background:rgba(0,0,0,.45);color:#ffd36a;border:1px solid #ffd36a;padding:8px 10px;margin:4px;font-family:monospace;cursor:pointer}
-.route button:hover{color:#00ff99;border-color:#00ff99}
+html,body{
+  margin:0;
+  background:#030306;
+  color:#00ff99;
+  font-family:monospace;
+}
+
+.stage{
+  position:relative;
+  width:100vw;
+  min-height:100vh;
+  background:#030306;
+  overflow:hidden;
+}
+
+.bg{
+  position:absolute;
+  inset:0;
+  background:url("./web11-alpha.png") center center / cover no-repeat;
+  filter:brightness(.82) contrast(1.12);
+}
+
+.shadow{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(3,3,6,.42),
+    rgba(3,3,6,.05) 40%,
+    rgba(3,3,6,.76)
+  );
+}
+
+.header{
+  position:relative;
+  z-index:2;
+  padding:28px 32px 0;
+}
+
+h1{
+  margin:0;
+  font-size:54px;
+  letter-spacing:4px;
+  text-shadow:0 0 14px rgba(0,255,153,.65);
+}
+
+.subtitle{
+  margin-top:8px;
+  font-size:16px;
+}
+
+.panel{
+  display:none;
+  position:absolute;
+  z-index:4;
+  left:32px;
+  top:150px;
+  width:min(560px,calc(100vw - 64px));
+  border:1px solid #00ff99;
+  background:rgba(0,0,0,.64);
+  padding:22px;
+  box-shadow:0 0 30px rgba(0,255,153,.22);
+}
+
+.panel.open{
+  display:block;
+}
+
+.close{
+  position:absolute;
+  right:14px;
+  top:10px;
+  background:transparent;
+  color:#ffd36a;
+  border:1px solid #ffd36a;
+  font-family:monospace;
+  cursor:pointer;
+}
+
+.big{
+  font-size:82px;
+  color:#ff0066;
+  line-height:1;
+  text-shadow:0 0 18px rgba(255,0,102,.8);
+}
+
+.label{
+  color:#00ff99;
+  margin-top:14px;
+  font-weight:bold;
+}
+
+.value{
+  color:white;
+  word-break:break-word;
+}
+
+.route{
+  position:absolute;
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:18px 20px 24px;
+  text-align:center;
+  background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.05));
+  color:#ffd36a;
+}
+
+.route button{
+  background:rgba(0,0,0,.55);
+  color:#ffd36a;
+  border:1px solid #ffd36a;
+  padding:9px 12px;
+  margin:4px;
+  font-family:monospace;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.route button:hover{
+  color:#00ff99;
+  border-color:#00ff99;
+}
 </style>
 </head>
+
 <body>
 
 <div class="stage">
-<div class="bg"></div>
-<div class="overlay"></div>
 
-<div class="panel">
-<h1>WEB11 ALPHA</h1>
-<div class="subtitle">No station owns the archive. The archive exists through the route.</div>
+  <div class="bg"></div>
+  <div class="shadow"></div>
 
-<div id="card" class="station-card active">
-<div class="big" id="stationName">WEB11</div>
-<h2 id="stationRole">Route Map</h2>
-<div class="label">Instruction</div>
-<div class="value" id="stationText">Use the route buttons below the image.</div>
-<div class="label">Archive ID</div>
-<div class="value">eleven-loop-web11-1782107828</div>
-<div class="label">SHA256 Witness</div>
-<div class="value">6f59f527acca8d033ebe7d993670190989f53408352844c80993c1b1060fda4a</div>
-</div>
-</div>
-</div>
+  <div class="header">
+    <h1>WEB11 ALPHA</h1>
+    <div class="subtitle">
+      No station owns the archive. The archive exists through the route.
+    </div>
+  </div>
 
-<div class="route">
-<button onclick="showStation('A')">A</button> →
-<button onclick="showStation('T')">T</button> →
-<button onclick="showStation('I')">I</button> →
-<button onclick="showStation('N')">N</button> →
-<button onclick="showStation('MAZE')">MAZE</button> →
-<button onclick="showStation('M')">M</button> →
-<button onclick="showStation('ME')">ME</button> →
-<button onclick="showStation('ONUS')">ONUS</button> →
-<button onclick="showStation('E')">E</button> →
-<button onclick="showStation('D')">D</button> →
-<button onclick="showStation('ELEVEN')">ELEVEN</button>
+  <div id="panel" class="panel">
+    <button class="close" onclick="closePanel()">CLOSE</button>
+
+    <div class="big" id="stationName">A</div>
+    <h2 id="stationRole">Arrival Witness</h2>
+
+    <div class="label">Instruction</div>
+    <div class="value" id="stationText"></div>
+
+    <div class="label">Archive ID</div>
+    <div class="value">eleven-loop-web11-1782107828</div>
+
+    <div class="label">SHA256 Witness</div>
+    <div class="value">
+      6f59f527acca8d033ebe7d993670190989f53408352844c80993c1b1060fda4a
+    </div>
+  </div>
+
+  <div class="route">
+    <button onclick="showStation('A')">A</button>
+    →
+    <button onclick="showStation('T')">T</button>
+    →
+    <button onclick="showStation('I')">I</button>
+    →
+    <button onclick="showStation('N')">N</button>
+    →
+    <button onclick="showStation('MAZE')">MAZE</button>
+    →
+    <button onclick="showStation('M')">M</button>
+    →
+    <button onclick="showStation('ME')">ME</button>
+    →
+    <button onclick="showStation('ONUS')">ONUS</button>
+    →
+    <button onclick="showStation('E')">E</button>
+    →
+    <button onclick="showStation('D')">D</button>
+    →
+    <button onclick="showStation('ELEVEN')">ELEVEN</button>
+  </div>
+
 </div>
 
 <script>
-const stations={
-A:["Arrival Witness","Records arrival of the archive into the public route."],
-T:["Time Witness","Records when the archive passes through the route."],
-I:["Identity Witness","Names the archive identity."],
-N:["Name Witness","Assigns the route name and points toward MAZE."],
-MAZE:["Reconstruction Station","Rebuilds only from station witnesses and fragments."],
-M:["Mutation Station","Records changes without owning the whole archive."],
-ME:["Balance Station","Coordinates identity and continuity."],
-ONUS:["Witness Station","Confirms the route passed through observation."],
-E:["Exit Station","Marks the archive leaving the route."],
-D:["Delivery Station","Marks delivery without ownership."],
-ELEVEN:["Continuity Witness","Records that the route remains alive."]
+const stations = {
+  A: [
+    "Arrival Witness",
+    "Records arrival of the archive into the public route."
+  ],
+  T: [
+    "Time Witness",
+    "Records when the archive passes through the route."
+  ],
+  I: [
+    "Identity Witness",
+    "Names the archive identity."
+  ],
+  N: [
+    "Name Witness",
+    "Assigns the route name and points toward MAZE."
+  ],
+  MAZE: [
+    "Reconstruction Station",
+    "Rebuilds only from station witnesses and fragments."
+  ],
+  M: [
+    "Mutation Station",
+    "Records changes without owning the whole archive."
+  ],
+  ME: [
+    "Balance Station",
+    "Coordinates identity and continuity."
+  ],
+  ONUS: [
+    "Witness Station",
+    "Confirms the route passed through observation."
+  ],
+  E: [
+    "Exit Station",
+    "Marks the archive leaving the route."
+  ],
+  D: [
+    "Delivery Station",
+    "Marks delivery without ownership."
+  ],
+  ELEVEN: [
+    "Continuity Witness",
+    "Records that the route remains alive."
+  ]
 };
+
 function showStation(name){
-document.getElementById("stationName").textContent=name;
-document.getElementById("stationRole").textContent=stations[name][0];
-document.getElementById("stationText").textContent=stations[name][1];
+  document.getElementById("stationName").textContent = name;
+  document.getElementById("stationRole").textContent = stations[name][0];
+  document.getElementById("stationText").textContent = stations[name][1];
+  document.getElementById("panel").classList.add("open");
+}
+
+function closePanel(){
+  document.getElementById("panel").classList.remove("open");
 }
 </script>
 
