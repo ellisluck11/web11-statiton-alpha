@@ -3,99 +3,211 @@
 <head>
 <meta charset="utf-8">
 <title>WEB11 ALPHA</title>
+
 <style>
+
 body{
-  margin:0;
-  background:#030306;
-  color:#00ff99;
-  font-family:monospace;
+    margin:0;
+    background:#030306;
+    color:#00ff99;
+    font-family:monospace;
 }
+
 .wrap{
-  padding:28px;
+    width:100%;
 }
+
+.header{
+    padding:20px 28px;
+}
+
 h1{
-  margin:0 0 8px;
-  font-size:44px;
-  letter-spacing:3px;
+    margin:0;
+    font-size:54px;
+    letter-spacing:4px;
 }
-p{margin:0 0 22px}
+
+.subtitle{
+    margin-top:8px;
+    font-size:18px;
+}
+
 .hero{
-  position:relative;
-  width:100%;
-  max-width:1400px;
-  margin:auto;
+    position:relative;
+    width:100%;
+    max-width:1800px;
+    margin:auto;
 }
+
 .hero img{
-  width:100%;
-  display:block;
+    width:100%;
+    display:block;
 }
+
+/* HOTSPOTS */
+
 .hotspot{
-  position:absolute;
-  display:block;
-  width:7%;
-  height:12%;
-  cursor:pointer;
+    position:absolute;
+    display:block;
+    cursor:pointer;
 }
-#a{left:4%; top:24%}
-#t{left:15%; top:28%}
-#i{left:26%; top:25%}
-#n{left:38%; top:25%}
-#maze{left:48%; top:21%; width:14%; height:20%}
-#m{left:65%; top:25%}
-#me{left:72%; top:25%}
-#onus{left:79%; top:26%}
-#e{left:86%; top:28%}
-#d{left:83%; top:55%}
-#eleven{left:91%; top:26%; width:8%; height:18%}
+
+/* LEFT SIDE */
+
+#a{
+    left:2%;
+    top:40%;
+    width:8%;
+    height:20%;
+}
+
+#t{
+    left:13%;
+    top:37%;
+    width:8%;
+    height:20%;
+}
+
+#i{
+    left:22%;
+    top:35%;
+    width:8%;
+    height:20%;
+}
+
+#n{
+    left:32%;
+    top:34%;
+    width:8%;
+    height:20%;
+}
+
+/* MAZE */
+
+#maze{
+    left:42%;
+    top:26%;
+    width:18%;
+    height:28%;
+}
+
+/* RIGHT SIDE */
+
+#m{
+    left:60%;
+    top:35%;
+    width:8%;
+    height:20%;
+}
+
+#me{
+    left:69%;
+    top:35%;
+    width:8%;
+    height:20%;
+}
+
+#onus{
+    left:76%;
+    top:36%;
+    width:8%;
+    height:20%;
+}
+
+#e{
+    left:84%;
+    top:38%;
+    width:6%;
+    height:18%;
+}
+
+#d{
+    left:77%;
+    top:58%;
+    width:8%;
+    height:20%;
+}
+
+#eleven{
+    left:89%;
+    top:35%;
+    width:10%;
+    height:28%;
+}
+
 .route{
-  max-width:1400px;
-  margin:18px auto 0;
-  font-size:22px;
-  color:#ffd36a;
+    padding:24px 28px 40px;
+    text-align:center;
+    font-size:22px;
+    color:#ffd36a;
 }
+
 .route a{
-  color:#ffd36a;
-  text-decoration:none;
+    color:#ffd36a;
+    text-decoration:none;
 }
+
 .route a:hover{
-  color:#00ff99;
+    color:#00ff99;
 }
+
 </style>
+
 </head>
 <body>
 
 <div class="wrap">
+
+<div class="header">
 <h1>WEB11 ALPHA</h1>
-<p>No station owns the archive. The archive exists through the route.</p>
+<div class="subtitle">
+No station owns the archive. The archive exists through the route.
+</div>
+</div>
 
 <div class="hero">
-<img src="./web11-alpha.png" alt="WEB11 Alpha route">
 
-<a id="a" class="hotspot" href="./A/" title="Station A"></a>
-<a id="t" class="hotspot" href="./T/" title="Station T"></a>
-<a id="i" class="hotspot" href="./I/" title="Station I"></a>
-<a id="n" class="hotspot" href="#" title="Station N"></a>
-<a id="maze" class="hotspot" href="#" title="Station MAZE"></a>
-<a id="m" class="hotspot" href="#" title="Station M"></a>
-<a id="me" class="hotspot" href="#" title="Station ME"></a>
-<a id="onus" class="hotspot" href="#" title="Station ONUS"></a>
-<a id="e" class="hotspot" href="#" title="Station E"></a>
-<a id="d" class="hotspot" href="#" title="Station D"></a>
-<a id="eleven" class="hotspot" href="#" title="Station ELEVEN"></a>
+<img src="./web11-alpha.png" alt="WEB11 Alpha">
+
+<a id="a" class="hotspot" href="./A/" title="A"></a>
+<a id="t" class="hotspot" href="./T/" title="T"></a>
+<a id="i" class="hotspot" href="./I/" title="I"></a>
+
+<a id="n" class="hotspot" href="#" title="N"></a>
+<a id="maze" class="hotspot" href="#" title="MAZE"></a>
+<a id="m" class="hotspot" href="#" title="M"></a>
+<a id="me" class="hotspot" href="#" title="ME"></a>
+<a id="onus" class="hotspot" href="#" title="ONUS"></a>
+<a id="e" class="hotspot" href="#" title="E"></a>
+<a id="d" class="hotspot" href="#" title="D"></a>
+<a id="eleven" class="hotspot" href="#" title="ELEVEN"></a>
+
 </div>
 
 <div class="route">
-<a href="./A/">A</a> →
-<a href="./T/">T</a> →
-<a href="./I/">I</a> →
-<a href="#">N</a> →
-<a href="#">MAZE</a> →
-<a href="#">M</a> →
-<a href="#">ME</a> →
-<a href="#">ONUS</a> →
-<a href="#">E</a> →
-<a href="#">D</a> →
-<a href="#">ELEVEN</a>
+
+<a href="./A/">A</a>
+→
+<a href="./T/">T</a>
+→
+<a href="./I/">I</a>
+→
+N
+→
+MAZE
+→
+M
+→
+ME
+→
+ONUS
+→
+E
+→
+D
+→
+ELEVEN
+
 </div>
 
 </div>
