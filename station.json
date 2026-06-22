@@ -1,0 +1,19 @@
+{
+  "station": "A",
+  "web11": true,
+  "law": "I do not own the archive.",
+  "holds": "arrival fragment",
+  "route": [
+    "A",
+    "T",
+    "I",
+    "N",
+    "MAZE",
+    "M",
+    "ME",
+    "ONUS",
+    "E",
+    "D",
+    "ELEVEN"
+  ]
+}
