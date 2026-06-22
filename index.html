@@ -1,63 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>WEB11 PACK ALPHA</title>
+<title>WEB11 ALPHA</title>
 <style>
 body{
-background:black;
-color:#00ff99;
-font-family:monospace;
-padding:40px;
+  margin:0;
+  background:#030306;
+  color:#00ff99;
+  font-family:monospace;
 }
-.box{
-border:1px solid #00ff99;
-padding:20px;
-max-width:900px;
+.wrap{
+  padding:28px;
 }
-a{
-color:#ff0066;
-font-size:28px;
-text-decoration:none;
+h1{
+  margin:0 0 8px;
+  font-size:44px;
+  letter-spacing:3px;
 }
-.route{
-font-size:24px;
-line-height:2;
+p{
+  margin:0 0 22px;
 }
+.hero{
+  position:relative;
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+}
+.hero img{
+  width:100%;
+  display:block;
+}
+.station{
+  position:absolute;
+  color:#ffd36a;
+  font-size:22px;
+  font-weight:bold;
+  text-decoration:none;
+  text-shadow:0 0 10px #000, 0 0 14px #ffd36a;
+}
+.maze{font-size:34px}
+#a{left:5%; top:21%}
+#t{left:18%; top:15%}
+#i{left:29%; top:12%}
+#n{left:41%; top:12%}
+#maze{left:55%; top:8%}
+#m{left:70%; top:12%}
+#me{left:78%; top:16%}
+#onus{left:84%; top:17%}
+#e{left:91%; top:24%}
+#d{left:88%; top:50%}
+#eleven{left:93%; top:14%}
 </style>
 </head>
 <body>
 
-<div class="box">
+<div class="wrap">
+<h1>WEB11 ALPHA</h1>
+<p>No station owns the archive. The archive exists through the route.</p>
 
-<h1>WEB11 PACK ALPHA</h1>
+<div class="hero">
+<img src="./web11-alpha.png" alt="WEB11 Alpha route">
 
-<p>
-No station owns the archive.
-The archive exists through the route.
-</p>
-
-<div class="route">
-
-<a href="./A/">A</a>
-
-→
-
-<a href="./T/">T</a>
-
-→
-
-<a href="./I/">I</a>
-
+<a id="a" class="station" href="./A/">A</a>
+<a id="t" class="station" href="./T/">T</a>
+<a id="i" class="station" href="./I/">I</a>
+<a id="n" class="station" href="#">N</a>
+<a id="maze" class="station maze" href="#">MAZE</a>
+<a id="m" class="station" href="#">M</a>
+<a id="me" class="station" href="#">ME</a>
+<a id="onus" class="station" href="#">ONUS</a>
+<a id="e" class="station" href="#">E</a>
+<a id="d" class="station" href="#">D</a>
+<a id="eleven" class="station" href="#">ELEVEN</a>
 </div>
-
-<br>
-
-<p>
-Next Pack:
-N → MAZE → M → ME
-</p>
-
 </div>
 
 </body>
